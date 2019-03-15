@@ -211,6 +211,8 @@ class account_abstract_payment(models.AbstractModel):
         self.amount = abs(self._compute_payment_amount())
 
         # Set by default the first liquidity journal having this currency if exists.
+        if self.journal_id:
+            return
         journal = self.env['account.journal'].search(
             [('type', 'in', ('bank', 'cash')), ('currency_id', '=', self.currency_id.id)], limit=1)
         if journal:
@@ -234,10 +236,14 @@ class account_abstract_payment(models.AbstractModel):
             currency = self.currency_id or self.journal_id.currency_id or self.journal_id.company_id.currency_id or invoices and invoices[0].currency_id
 
         # Avoid currency rounding issues by summing the amounts according to the company_currency_id before
+        invoice_datas = invoices.read_group(
+            [('id', 'in', invoices.ids)],
+            ['currency_id', 'type', 'residual_signed'],
+            ['currency_id', 'type'], lazy=False)
         total = 0.0
-        groups = groupby(invoices, lambda i: i.currency_id)
-        for payment_currency, payment_invoices in groups:
-            amount_total = sum([MAP_INVOICE_TYPE_PAYMENT_SIGN[i.type] * i.residual_signed for i in payment_invoices])
+        for invoice_data in invoice_datas:
+            amount_total = MAP_INVOICE_TYPE_PAYMENT_SIGN[invoice_data['type']] * invoice_data['residual_signed']
+            payment_currency = self.env['res.currency'].browse(invoice_data['currency_id'][0])
             if payment_currency == currency:
                 total += amount_total
             else:
@@ -324,7 +330,7 @@ class account_register_payments(models.TransientModel):
         pmt_communication = self.show_communication_field and self.communication \
                             or self.group_invoices and ' '.join([inv.reference or inv.number for inv in invoices]) \
                             or invoices[0].reference # in this case, invoices contains only one element, since group_invoices is False
-        return {
+        values = {
             'journal_id': self.journal_id.id,
             'payment_method_id': self.payment_method_id.id,
             'payment_date': self.payment_date,
@@ -337,7 +343,12 @@ class account_register_payments(models.TransientModel):
             'partner_type': MAP_INVOICE_TYPE_PARTNER_TYPE[invoices[0].type],
             'partner_bank_account_id': bank_account.id,
             'multi': False,
+            'payment_difference_handling': self.payment_difference_handling,
+            'writeoff_account_id': self.writeoff_account_id.id,
+            'writeoff_label': self.writeoff_label,
         }
+
+        return values
 
     @api.multi
     def get_payments_vals(self):
@@ -429,6 +440,8 @@ class account_payment(models.Model):
             if move_line.account_id.reconcile:
                 move_line_id = move_line.id
                 break;
+        if not self.partner_id:
+            raise UserError(_("Payments without a customer can't be matched"))
         action_context = {'company_ids': [self.company_id.id], 'partner_ids': [self.partner_id.commercial_partner_id.id]}
         if self.partner_type == 'customer':
             action_context.update({'mode': 'customers'})
@@ -648,7 +661,9 @@ class account_payment(models.Model):
         if any(len(record.invoice_ids) != 1 for record in self):
             # For multiple invoices, there is account.register.payments wizard
             raise UserError(_("This method should only be called to process a single invoice's payment."))
-        return self.post()
+        res = self.post()
+        self.mapped('payment_transaction_id').filtered(lambda x: x.state == 'done' and not x.is_processed)._post_process_after_done()
+        return res
 
     def _create_payment_entry(self, amount):
         """ Create a journal entry corresponding to a payment, if the payment references invoice(s) they are reconciled.

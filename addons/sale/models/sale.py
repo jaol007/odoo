@@ -47,8 +47,8 @@ class SaleOrder(models.Model):
                 amount_untaxed += line.price_subtotal
                 amount_tax += line.price_tax
             order.update({
-                'amount_untaxed': order.pricelist_id.currency_id.round(amount_untaxed),
-                'amount_tax': order.pricelist_id.currency_id.round(amount_tax),
+                'amount_untaxed': amount_untaxed,
+                'amount_tax': amount_tax,
                 'amount_total': amount_untaxed + amount_tax,
             })
 
@@ -66,22 +66,31 @@ class SaleOrder(models.Model):
         for possible refunds created directly from existing invoices. This is necessary since such a
         refund is not directly linked to the SO.
         """
+        # Ignore the status of the deposit product
+        deposit_product_id = self.env['sale.advance.payment.inv']._default_product_id()
+        line_invoice_status_all = [(d['order_id'][0], d['invoice_status']) for d in self.env['sale.order.line'].read_group([('order_id', 'in', self.ids), ('product_id', '!=', deposit_product_id.id)], ['order_id', 'invoice_status'], ['order_id', 'invoice_status'], lazy=False)]
         for order in self:
             invoice_ids = order.order_line.mapped('invoice_lines').mapped('invoice_id').filtered(lambda r: r.type in ['out_invoice', 'out_refund'])
             # Search for invoices which have been 'cancelled' (filter_refund = 'modify' in
             # 'account.invoice.refund')
             # use like as origin may contains multiple references (e.g. 'SO01, SO02')
-            refunds = invoice_ids.search([('origin', 'like', order.name), ('company_id', '=', order.company_id.id)]).filtered(lambda r: r.type in ['out_invoice', 'out_refund'])
+            refunds = invoice_ids.search([('origin', 'like', order.name), ('company_id', '=', order.company_id.id), ('type', 'in', ('out_invoice', 'out_refund'))])
             invoice_ids |= refunds.filtered(lambda r: order.name in [origin.strip() for origin in r.origin.split(',')])
-            # Search for refunds as well
-            refund_ids = self.env['account.invoice'].browse()
-            if invoice_ids:
-                for inv in invoice_ids:
-                    refund_ids += refund_ids.search([('type', '=', 'out_refund'), ('origin', '=', inv.number), ('origin', '!=', False), ('journal_id', '=', inv.journal_id.id)])
 
-            # Ignore the status of the deposit product
-            deposit_product_id = self.env['sale.advance.payment.inv']._default_product_id()
-            line_invoice_status = [line.invoice_status for line in order.order_line if line.product_id != deposit_product_id]
+            # Search for refunds as well
+            domain_inv = expression.OR([
+                ['&', ('origin', '=', inv.number), ('journal_id', '=', inv.journal_id.id)]
+                for inv in invoice_ids if inv.number
+            ])
+            if domain_inv:
+                refund_ids = self.env['account.invoice'].search(expression.AND([
+                    ['&', ('type', '=', 'out_refund'), ('origin', '!=', False)], 
+                    domain_inv
+                ]))
+            else:
+                refund_ids = self.env['account.invoice'].browse()
+
+            line_invoice_status = [d[1] for d in line_invoice_status_all if d[0] == order.id]
 
             if order.state not in ('sale', 'done'):
                 invoice_status = 'no'
@@ -311,7 +320,7 @@ class SaleOrder(models.Model):
             'payment_term_id': self.partner_id.property_payment_term_id and self.partner_id.property_payment_term_id.id or False,
             'partner_invoice_id': addr['invoice'],
             'partner_shipping_id': addr['delivery'],
-            'user_id': self.partner_id.user_id.id or self.env.uid
+            'user_id': self.partner_id.user_id.id or self.partner_id.commercial_partner_id.user_id.id or self.env.uid
         }
         if self.env['ir.config_parameter'].sudo().get_param('sale.use_sale_note') and self.env.user.company_id.sale_note:
             values['note'] = self.with_context(lang=self.partner_id.lang).env.user.company_id.sale_note
@@ -430,7 +439,9 @@ class SaleOrder(models.Model):
     @api.model
     def _name_search(self, name, args=None, operator='ilike', limit=100, name_get_uid=None):
         if self._context.get('sale_show_partner_name'):
-            if operator in ('ilike', 'like', '=', '=like', '=ilike'):
+            if operator == 'ilike' and not (name or '').strip():
+                domain = []
+            elif operator in ('ilike', 'like', '=', '=like', '=ilike'):
                 domain = expression.AND([
                     args or [],
                     ['|', ('name', operator, name), ('partner_id.name', operator, name)]
@@ -640,11 +651,15 @@ class SaleOrder(models.Model):
             if email_act and email_act.get('context'):
                 email_ctx = email_act['context']
                 email_ctx.update(default_email_from=order.company_id.email)
-                order.with_context(email_ctx).message_post_with_template(email_ctx.get('default_template_id'))
+                order.with_context(**email_ctx).message_post_with_template(email_ctx.get('default_template_id'))
         return True
 
     @api.multi
     def action_done(self):
+        tx = self.sudo().transaction_ids.get_last_transaction()
+        if tx and tx.state == 'pending' and tx.acquirer_id.provider == 'transfer':
+            tx._set_transaction_done()
+            tx.write({'is_processed': True})
         return self.write({'state': 'done'})
 
     @api.multi
@@ -662,7 +677,7 @@ class SaleOrder(models.Model):
 
         # create an analytic account if at least an expense product
         for order in self:
-            if any([expense_policy != 'no' for expense_policy in order.order_line.mapped('product_id.expense_policy')]):
+            if any([expense_policy not in [False, 'no'] for expense_policy in order.order_line.mapped('product_id.expense_policy')]):
                 if not order.analytic_account_id:
                     order._create_analytic_account()
 
@@ -873,7 +888,14 @@ class SaleOrder(models.Model):
         self.ensure_one()
         return '%s %s' % (self.type_name, self.name)
 
+    @api.multi
     def _get_share_url(self, redirect=False, signup_partner=False, pid=None):
+        """Override for sales order.
+
+        If the SO is in a state where an action is required from the partner,
+        return the URL with a login token. Otherwise, return the URL with a
+        generic access token (no login).
+        """
         self.ensure_one()
         if self.state not in ['sale', 'done']:
             auth_param = url_encode(self.partner_id.signup_get_auth_param()[self.partner_id.id])
@@ -1026,7 +1048,7 @@ class SaleOrderLine(models.Model):
             msg = _("Extra line with %s ") % (line.product_id.display_name,)
             line.order_id.message_post(body=msg)
             # create an analytic account if at least an expense product
-            if line.product_id.expense_policy != 'no' and not self.order_id.analytic_account_id:
+            if line.product_id.expense_policy not in [False, 'no'] and not self.order_id.analytic_account_id:
                 self.order_id._create_analytic_account()
         return line
 
@@ -1428,6 +1450,16 @@ class SaleOrderLine(models.Model):
 
         result = {'domain': domain}
 
+        name = self.get_sale_order_line_multiline_description_sale(product)
+
+        vals.update(name=name)
+
+        self._compute_tax_id()
+
+        if self.order_id.pricelist_id and self.order_id.partner_id:
+            vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
+        self.update(vals)
+
         title = False
         message = False
         warning = {}
@@ -1439,17 +1471,6 @@ class SaleOrderLine(models.Model):
             result = {'warning': warning}
             if product.sale_line_warn == 'block':
                 self.product_id = False
-                return result
-
-        name = self.get_sale_order_line_multiline_description_sale(product)
-
-        vals.update(name=name)
-
-        self._compute_tax_id()
-
-        if self.order_id.pricelist_id and self.order_id.partner_id:
-            vals['price_unit'] = self.env['account.tax']._fix_tax_included_price_company(self._get_display_price(product), product.taxes_id, self.tax_id, self.company_id)
-        self.update(vals)
 
         return result
 

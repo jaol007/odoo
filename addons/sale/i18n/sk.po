@@ -7,10 +7,10 @@
 # Miroslav Fic <mirko.fic@gmail.com>, 2018
 # Martin Trigaux, 2018
 # Matus Krnac <matus.krnac@gmail.com>, 2018
-# Pavol Krnáč <pavol.krnac@ekoenergo.sk>, 2018
-# Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2018
 # gebri <gebri@inmail.sk>, 2018
 # Robert Kirschner <robertkirschner@yahoo.com>, 2019
+# Pavol Krnáč <pavol.krnac@ekoenergo.sk>, 2019
+# Jaroslav Bosansky <jaro.bosansky@ekoenergo.sk>, 2019
 # Jan Prokop, 2019
 # 
 msgid ""
@@ -39,12 +39,8 @@ msgstr "# objednávok predaja"
 
 #. module: sale
 #: model:mail.template,report_name:sale.email_template_edi_sale
-msgid ""
-"${(object.name or '').replace('/','_')}${object.state == 'draft' and "
-"'_draft' or ''}"
+msgid "${(object.name or '').replace('/','_')}"
 msgstr ""
-"${(object.name or '').replace('/','_')}${object.state == 'draft' and "
-"'_draft' or ''}"
 
 #. module: sale
 #: model:mail.template,subject:sale.email_template_edi_sale
@@ -274,6 +270,8 @@ msgid ""
 "<span class=\"fa fa-lg fa-building-o\" title=\"Values set here are company-"
 "specific.\" groups=\"base.group_multi_company\"/>"
 msgstr ""
+"<span class=\"fa fa-lg fa-building-o\" title=\"Nastavené hodnoty sú "
+"špecifické pre spoločnosť.\" groups=\"base.group_multi_company\"/>"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -514,6 +512,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid "Accept &amp; Pay"
 msgstr "Akceptácia &amp; Platba"
+
+#. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Accept and sign online"
+msgstr "Prijať a podpísať online"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__access_warning
@@ -1450,6 +1453,11 @@ msgid "Forbidden values on non-accountable sale order line"
 msgstr "Zakázané hodnoty na nezodpovedajúcich riadkoch objednávky"
 
 #. module: sale
+#: selection:res.config.settings,auth_signup_uninvited:0
+msgid "Free sign up"
+msgstr "Voľná registrácia"
+
+#. module: sale
 #: model_terms:ir.actions.act_window,help:sale.action_account_invoice_report_salesteam
 msgid ""
 "From this report, you can have an overview of the amount invoiced to your "
@@ -1717,12 +1725,12 @@ msgstr "Fakturovať objednané množstvá"
 #. module: sale
 #: selection:sale.advance.payment.inv,advance_payment_method:0
 msgid "Invoiceable lines"
-msgstr "Faktúrovateľné riadky"
+msgstr "Faktúrovateľné položky"
 
 #. module: sale
 #: selection:sale.advance.payment.inv,advance_payment_method:0
 msgid "Invoiceable lines (deduct down payments)"
-msgstr "Faktúrovateľné riadky (strhnúť akontácie)"
+msgstr "Faktúrovateľné položky (strhnúť akontácie)"
 
 #. module: sale
 #: selection:sale.report,state:0
@@ -1785,6 +1793,12 @@ msgid "Invoicing"
 msgstr "Fakturácia"
 
 #. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_content
+msgid "Invoicing Address"
+msgstr "Fakturačná adresa"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_product_product__invoice_policy
 #: model:ir.model.fields,field_description:sale.field_product_template__invoice_policy
 #: model:ir.model.fields,field_description:sale.field_res_config_settings__default_invoice_policy
 msgid "Invoicing Policy"
@@ -1840,7 +1854,7 @@ msgstr "Je vypršané"
 #: model:ir.model.fields,help:sale.field_sale_order_line__is_expense
 msgid ""
 "Is true if the sales order line comes from an expense or a vendor bills"
-msgstr "Platí ak riadok objednávky je náklad alebo účtenka dodávateľa"
+msgstr "Platí ak položka objednávky je náklad alebo účtenka dodávateľa"
 
 #. module: sale
 #: code:addons/sale/models/sale.py:1083
@@ -2003,7 +2017,7 @@ msgstr "Správa pre predajnú objednávku"
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_product_template__sale_line_warn_msg
 msgid "Message for Sales Order Line"
-msgstr "Správa pre riadok predajnej objednávky"
+msgstr "Správa pre položku predajnej objednávky"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__message_ids
@@ -2023,7 +2037,7 @@ msgstr "Metóda úpravy dodaného množstva"
 #. module: sale
 #: sql_constraint:sale.order.line:0
 msgid "Missing required fields on accountable sale order line."
-msgstr "Chýbajú požadované polia na zodpovedajúcich riadkoch objednávky."
+msgstr "Chýbajú požadované polia na zodpovedajúcich položkách objednávky."
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_res_config_settings__multi_sales_price
@@ -2049,12 +2063,12 @@ msgstr "Moje objednávky"
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_view_search_inherit_quotation
 msgid "My Quotations"
-msgstr "Moke cenové ponuky"
+msgstr "Moje cenové ponuky"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_sales_order_line_filter
 msgid "My Sales Order Lines"
-msgstr "Moje riadky objednávky predaja"
+msgstr "Moje položky objednávky predaja"
 
 #. module: sale
 #: model:ir.model.fields,help:sale.field_sale_order__signed_by
@@ -2183,6 +2197,11 @@ msgid "Office chairs can harm your floor: protect it."
 msgstr "Kancelárske stoličky môžu poškodiť vašu podlahu: chráňte ju."
 
 #. module: sale
+#: selection:res.config.settings,auth_signup_uninvited:0
+msgid "On invitation"
+msgstr "Na pozvanie"
+
+#. module: sale
 #: model_terms:ir.actions.act_window,help:sale.act_res_partner_2_sale_order
 #: model_terms:ir.actions.act_window,help:sale.action_orders_salesteams
 #: model_terms:ir.actions.act_window,help:sale.action_quotations
@@ -2291,7 +2310,7 @@ msgstr "Dátum objednávky"
 #: model:ir.model.fields,field_description:sale.field_sale_order__order_line
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 msgid "Order Lines"
-msgstr "Riadky objednávky"
+msgstr "Položky objednávky"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_order_tree
@@ -2441,6 +2460,11 @@ msgid "Pay now"
 msgstr "Zaplatiť teraz"
 
 #. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Pay online"
+msgstr "Platba online"
+
+#. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.sale_order_portal_template
 msgid "Pay with"
 msgstr "Platba cez"
@@ -2459,7 +2483,7 @@ msgstr "Platba s iným príjemcom platby "
 #. module: sale
 #: selection:sale.payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Pay with credit card (via Stripe)"
-msgstr "Platba kreditnou kartou"
+msgstr "Platba kreditnou kartou (cez Stripe)"
 
 #. module: sale
 #: selection:res.company,sale_onboarding_payment_method:0
@@ -2991,7 +3015,7 @@ msgstr ""
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_product_attribute_custom_value__sale_order_line_id
 msgid "Sale order line"
-msgstr "Riadok predajnej objednávky"
+msgstr "Položka objednávky"
 
 #. module: sale
 #: selection:crm.team,dashboard_graph_model:0
@@ -3063,24 +3087,24 @@ msgstr "Položka objednávky"
 #: model:ir.model,name:sale.model_sale_order_line
 #: model:ir.model.fields,field_description:sale.field_product_template__sale_line_warn
 msgid "Sales Order Line"
-msgstr "Riadok objednávky"
+msgstr "Položka objednávok"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_account_invoice_line__sale_line_ids
 #: model_terms:ir.ui.view,arch_db:sale.view_order_form
 #: model_terms:ir.ui.view,arch_db:sale.view_order_line_tree
 msgid "Sales Order Lines"
-msgstr "Riadky objednávky"
+msgstr "Položky objednávky"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_sales_order_line_filter
 msgid "Sales Order Lines ready to be invoiced"
-msgstr "Riadky objednávky predaja pripravené na fakturáciu"
+msgstr "Položky objednávky predaja pripravené na fakturáciu"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.view_sales_order_line_filter
 msgid "Sales Order Lines related to a Sales Order of mine"
-msgstr "Riadky objednávok predaja týkajúce sa mojich objednávok predaja"
+msgstr "Položky objednávok predaja týkajúce sa mojich objednávok predaja"
 
 #. module: sale
 #: code:addons/sale/models/payment.py:133
@@ -3177,7 +3201,7 @@ msgstr "Predajca"
 #: code:addons/sale/models/res_company.py:60
 #, python-format
 msgid "Sample Order Line"
-msgstr "Vzorový riadok objednávky"
+msgstr "Vzorová položka objednávky"
 
 #. module: sale
 #: code:addons/sale/models/res_company.py:57
@@ -3239,6 +3263,14 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
 msgid "Sell and purchase products in different units of measure"
 msgstr "Predaj a nákup produktov v rozličných merných jednotkách"
+
+#. module: sale
+#: model:ir.model.fields,field_description:sale.field_res_config_settings__module_website_sale_digital
+msgid ""
+"Sell digital products - provide downloadable content on your customer portal"
+msgstr ""
+"Predávajte digitálne produkty - poskytnite sťahovateľný obsah na vašom "
+"zákazníckom portáli"
 
 #. module: sale
 #: model_terms:ir.ui.view,arch_db:sale.res_config_settings_view_form
@@ -3375,6 +3407,11 @@ msgid "Show standard terms &amp; conditions on orders"
 msgstr "Zobraziť štandardné pojmy &amp; podmienky na objednávkach"
 
 #. module: sale
+#: model_terms:ir.ui.view,arch_db:sale.mail_notification_paynow_online
+msgid "Sign and pay online"
+msgstr ""
+
+#. module: sale
 #: selection:res.company,sale_onboarding_payment_method:0
 #: selection:sale.payment.acquirer.onboarding.wizard,payment_method:0
 msgid "Sign online"
@@ -3480,17 +3517,17 @@ msgstr "Skladové pohyby"
 #. module: sale
 #: selection:res.company,sale_onboarding_payment_method:0
 msgid "Stripe"
-msgstr "Pásik"
+msgstr "Stripe"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_payment_acquirer_onboarding_wizard__stripe_publishable_key
 msgid "Stripe Publishable Key"
-msgstr "Verejný kľúč pásika"
+msgstr "Verejný kľúč Stripe"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_payment_acquirer_onboarding_wizard__stripe_secret_key
 msgid "Stripe Secret Key"
-msgstr "Tajný kľúč pásika"
+msgstr "Tajný kľúč Stripe"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order_line__price_subtotal
