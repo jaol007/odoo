@@ -69,7 +69,7 @@ msgstr ""
 #: model:product.product,description_sale:product.product_product_4d
 #: model:product.template,description_sale:product.product_product_4b_product_template
 msgid "160x80cm, with large legs."
-msgstr ""
+msgstr "160x80សម, ជាមួយនិងជើងធំ។"
 
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_6
@@ -114,7 +114,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.report_pricelist
 msgid "<strong>Description</strong>"
-msgstr ""
+msgstr "<strong>ការពិពណ៌នា</strong>"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.report_pricelist
@@ -134,7 +134,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.report_packagingbarcode
 msgid "<strong>Qty: </strong>"
-msgstr ""
+msgstr "<strong>បរិមាណ</strong>"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_only_form_view
@@ -173,6 +173,9 @@ msgid ""
 "A consumable product is a product for which stock is not managed.\n"
 "A service is a non-material product you provide."
 msgstr ""
+"ផលិតផលដែលអាចផ្ទុកបានគឺជាផលិតផលដែលអ្នកគ្រប់គ្រងក្នុងស្តុក។ ត្រូវដំឡើងកម្មវិធីសារពើភ័ណ្ឌ។\n"
+"ផលិតផលដែលអាចប្រើប្រាស់បានគឺជាផលិតផលដែលស្តុកមិនត្រូវបានគ្រប់គ្រង។\n"
+"សេវាកម្មគឺជាផលិតផលដែលមិនមែនជាសម្ភារៈដែលអ្នកផ្តល់ជូន។"
 
 #. module: product
 #: model:product.product,name:product.product_product_25
@@ -239,13 +242,13 @@ msgstr ""
 #. module: product
 #: selection:product.attribute,create_variant:0
 msgid "Always"
-msgstr ""
+msgstr "តែងតែ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_normal_form_view
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_view
 msgid "Applicable On"
-msgstr ""
+msgstr "អាចប្រើបាននៅលើ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__applied_on
@@ -303,7 +306,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_template_attribute_line__value_ids
 #: model_terms:ir.ui.view,arch_db:product.product_attribute_view_form
 msgid "Attribute Values"
-msgstr ""
+msgstr "កំណត់គុណតម្លៃ"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.attribute_action
@@ -311,7 +314,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Attributes"
-msgstr ""
+msgstr "កំណត់"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_packaging__barcode
@@ -350,7 +353,7 @@ msgstr ""
 #. module: product
 #: model:product.attribute.value,name:product.product_attribute_value_4
 msgid "Black"
-msgstr ""
+msgstr "ខ្មៅ"
 
 #. module: product
 #: model:product.product,name:product.product_product_10
@@ -422,7 +425,7 @@ msgstr ""
 #. module: product
 #: model:product.attribute,name:product.product_attribute_2
 msgid "Color"
-msgstr ""
+msgstr "ព័ណ៍"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__color
@@ -453,7 +456,7 @@ msgstr "ក្រុមហ៊ុន"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_category__complete_name
 msgid "Complete Name"
-msgstr ""
+msgstr "បំពេញឈ្មោះ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__compute_price
@@ -482,7 +485,7 @@ msgstr ""
 #: model:product.category,name:product.product_category_consumable
 #: selection:product.template,type:0
 msgid "Consumable"
-msgstr ""
+msgstr "អាចប្រើប្រាស់បាន"
 
 #. module: product
 #: model:ir.model,name:product.model_res_partner
@@ -548,7 +551,7 @@ msgstr "ក្រុមប្រទេស"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist__country_group_ids
 msgid "Country Groups"
-msgstr ""
+msgstr "ក្រុមប្រទេស"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__create_variant
@@ -564,7 +567,7 @@ msgstr ""
 #: model_terms:ir.actions.act_window,help:product.product_template_action
 #: model_terms:ir.actions.act_window,help:product.product_template_action_all
 msgid "Create a new product"
-msgstr ""
+msgstr "បង្កើតផលិតផលថ្មី"
 
 #. module: product
 #: model_terms:ir.actions.act_window,help:product.product_normal_action
@@ -641,12 +644,12 @@ msgstr "កាលបរិច្ឆេត"
 #: model:product.product,uom_name:product.expense_hotel
 #: model:product.template,uom_name:product.expense_hotel_product_template
 msgid "Day(s)"
-msgstr ""
+msgstr "ថ្ងៃ (s)"
 
 #. module: product
 #: model:ir.model,name:product.model_decimal_precision
 msgid "Decimal Precision"
-msgstr ""
+msgstr "ភាពត្រឹមត្រូវទសភាគ"
 
 #. module: product
 #: code:addons/product/models/res_company.py:59
@@ -660,6 +663,7 @@ msgstr ""
 #: model:ir.model.fields,help:product.field_product_template__uom_id
 msgid "Default unit of measure used for all stock operations."
 msgstr ""
+"ចំនួននៃការប្រើប្រាស់នូវវិធានការណ៍កិច្ចសន្យាសម្រាប់ការប្រត្តិការណ៍សារពើភ័ណ្ឌ"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__uom_po_id
@@ -714,7 +718,7 @@ msgstr ""
 #: model:ir.model.fields,help:product.field_product_attribute_value__sequence
 #: model:ir.model.fields,help:product.field_product_template_attribute_value__sequence
 msgid "Determine the display order"
-msgstr ""
+msgstr "កំណត់លំដាប់បង្ហាញ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__display_name
@@ -756,7 +760,7 @@ msgstr ""
 #. module: product
 #: model:product.attribute,name:product.product_attribute_3
 msgid "Duration"
-msgstr ""
+msgstr "អំឡុងពេល"
 
 #. module: product
 #: model:product.product,description_sale:product.consu_delivery_03
@@ -798,7 +802,7 @@ msgstr ""
 #. module: product
 #: model:product.category,name:product.cat_expense
 msgid "Expenses"
-msgstr ""
+msgstr "ការចំណាយ"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_pricelist_item__name
@@ -814,7 +818,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__fixed_price
 msgid "Fixed Price"
-msgstr ""
+msgstr "តំលៃថេរ"
 
 #. module: product
 #: model:product.product,name:product.product_product_20
@@ -861,12 +865,12 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Future Activities"
-msgstr ""
+msgstr "សកម្មភាពទៅមុខ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "General Information"
-msgstr ""
+msgstr "ព័ត៌មាន​ទូទៅ"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__packaging_ids
@@ -908,7 +912,7 @@ msgstr ""
 #: model:product.template,uom_name:product.product_product_1_product_template
 #: model:product.template,uom_name:product.product_product_2_product_template
 msgid "Hour(s)"
-msgstr ""
+msgstr "ម៉ោង(s)"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__id
@@ -978,6 +982,9 @@ msgid ""
 " It is automatically resized as a 1024x1024px image, with aspect ratio "
 "preserved."
 msgstr ""
+"រូបភាពនៃផលិតផលវ៉ារ្យ៉ង់ (រូបភាពធំនៃគំរូផលិតផលប្រសិនបើមិនពិត) ។ "
+"វាត្រូវបានប្តូរទំហំដោយស្វ័យប្រវត្តិជារូបភាព 1024x1024px "
+"ជាមួយសមាមាត្រដែលត្រូវបានរក្សាទុក។"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__image_medium
@@ -1020,18 +1027,18 @@ msgstr ""
 #. module: product
 #: model:product.category,name:product.product_category_2
 msgid "Internal"
-msgstr ""
+msgstr "ផ្ទៃក្នុង"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Internal Notes"
-msgstr ""
+msgstr "កំណត់ចំណាំខាងក្នុង"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__default_code
 #: model:ir.model.fields,field_description:product.field_product_template__default_code
 msgid "Internal Reference"
-msgstr ""
+msgstr "ផ្នែកខាងក្នុង"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_product__barcode
@@ -1042,7 +1049,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Inventory"
-msgstr ""
+msgstr "សារពើភ័ណ្ឌ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_is_follower
@@ -1141,7 +1148,7 @@ msgstr "ផ្លាស់ប្តូរចុងក្រោយ"
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Late Activities"
-msgstr ""
+msgstr "សកម្មភាពចុងក្រោយ"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_supplierinfo__delay
@@ -1159,12 +1166,12 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__attribute_line_ids
 msgid "Lines"
-msgstr ""
+msgstr "ឋានៈនុក្រម"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Logistics"
-msgstr ""
+msgstr "ភ័ស្តុភារ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__message_main_attachment_id
@@ -1261,7 +1268,7 @@ msgstr "ឈ្មោះ"
 #. module: product
 #: selection:product.attribute,create_variant:0
 msgid "Never"
-msgstr ""
+msgstr "មិននែរ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -1320,7 +1327,7 @@ msgstr "ចំនួនសារមិនទាន់អាន"
 #: model:product.product,name:product.product_delivery_01
 #: model:product.template,name:product.product_delivery_01_product_template
 msgid "Office Chair"
-msgstr ""
+msgstr "កៅអី​ការិយាល័យ"
 
 #. module: product
 #: model:product.product,name:product.product_product_12
@@ -1353,7 +1360,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 msgid "Other Information"
-msgstr ""
+msgstr "ព័ត៌មាន​ផ្សេងទៀត"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_pricelist_item__base_pricelist_id
@@ -1370,7 +1377,7 @@ msgstr "ហួសកំណត់"
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_packaging__name
 msgid "Package Type"
-msgstr ""
+msgstr "ប្រភេទវេចខ្ចប់"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_packaging_form_view
@@ -1388,7 +1395,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_category__parent_path
 msgid "Parent Path"
-msgstr ""
+msgstr "ផ្លូវមេ"
 
 #. module: product
 #: model:product.product,name:product.product_product_9
@@ -1427,7 +1434,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_tree_view
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Price"
-msgstr ""
+msgstr "តម្លៃ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
@@ -1475,7 +1482,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_kanban_view
 #: model_terms:ir.ui.view,arch_db:product.product_template_kanban_view
 msgid "Price:"
-msgstr ""
+msgstr "តម្លៃ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_price_list__price_list
@@ -1542,12 +1549,12 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Pricing"
-msgstr ""
+msgstr "តំលៃ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.view_product_price_list
 msgid "Print"
-msgstr ""
+msgstr "បោះពុម្ព"
 
 #. module: product
 #: model:ir.model,name:product.model_product_product
@@ -1619,7 +1626,7 @@ msgstr "ប្រភេទផលិតផល"
 #: model_terms:ir.ui.view,arch_db:product.product_category_list_view
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Product Category"
-msgstr ""
+msgstr "ប្រភេទ​ផលិតផល"
 
 #. module: product
 #: model:ir.actions.report,name:product.report_product_label
@@ -1631,7 +1638,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
 msgid "Product Name"
-msgstr ""
+msgstr "ឈ្មោះផលិតផល"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__packaging_ids
@@ -1643,7 +1650,7 @@ msgstr ""
 #: model:ir.model,name:product.model_product_packaging
 #: model_terms:ir.ui.view,arch_db:product.product_packaging_form_view
 msgid "Product Packaging"
-msgstr ""
+msgstr "កញ្ជាប់ផលិតផល"
 
 #. module: product
 #: model:ir.actions.report,name:product.report_product_packaging
@@ -1698,7 +1705,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__type
 #: model:ir.model.fields,field_description:product.field_product_template__type
 msgid "Product Type"
-msgstr ""
+msgstr "ប្រភេទផលិតផល"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__product_id
@@ -1719,7 +1726,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:product.product_variant_action
 #: model_terms:ir.ui.view,arch_db:product.product_product_tree_view
 msgid "Product Variants"
-msgstr ""
+msgstr "វ៉ារ្យ៉ង់ផលិតផល"
 
 #. module: product
 #: model:ir.actions.act_window,name:product.product_template_action
@@ -1729,7 +1736,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 #: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
 msgid "Products"
-msgstr ""
+msgstr "ផលិតផល"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_view_search
@@ -1826,7 +1833,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_pricelist_item_form_view
 msgid "Rounding Method"
-msgstr ""
+msgstr "វិធីសាស្រ្តជុំទី"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__description_sale
@@ -1837,7 +1844,7 @@ msgstr ""
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__lst_price
 msgid "Sale Price"
-msgstr ""
+msgstr "តំលៃក់"
 
 #. module: product
 #: model:product.category,name:product.product_category_1
@@ -1916,7 +1923,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_search_view
 msgid "Show all records which has next action date is before today"
-msgstr ""
+msgstr "បង្ហាញកំណត់ត្រាទាំងអស់ដែលមានកាលបរិច្ឆេទសកម្មភាពបន្ទាប់នៅមុនថ្ងៃនេះ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_res_config_settings__group_product_pricelist
@@ -1945,7 +1952,7 @@ msgstr ""
 #. module: product
 #: model:product.category,name:product.product_category_4
 msgid "Software"
-msgstr ""
+msgstr "ផ្នែកទន់"
 
 #. module: product
 #: model:ir.model.fields,help:product.field_product_pricelist_item__categ_id
@@ -2263,7 +2270,7 @@ msgstr "សកម្មភាពថ្ងៃនេះ"
 #: model:ir.model.fields,field_description:product.field_product_supplierinfo__product_uom
 #: model:ir.model.fields,field_description:product.field_product_template__uom_id
 msgid "Unit of Measure"
-msgstr ""
+msgstr "ឯកតារង្វាស់"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__uom_name
@@ -2325,7 +2332,7 @@ msgstr ""
 #: model:product.template,uom_name:product.product_product_8_product_template
 #: model:product.template,uom_name:product.product_product_9_product_template
 msgid "Unit(s)"
-msgstr ""
+msgstr "កំរិត(s)"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_res_config_settings__group_uom
@@ -2352,7 +2359,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Valid"
-msgstr ""
+msgstr "មានសុពលភាព"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__valid_archived_variant_ids
@@ -2405,13 +2412,13 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 msgid "Validity"
-msgstr ""
+msgstr "សុពលភាព"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute_value__name
 #: model:ir.model.fields,field_description:product.field_product_template_attribute_value__name
 msgid "Value"
-msgstr ""
+msgstr "តំលៃ"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_attribute__value_ids
@@ -2473,7 +2480,7 @@ msgstr "អ្នកទិញ"
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Vendor Bills"
-msgstr ""
+msgstr "វិក័យប័ត្រលក់"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
@@ -2505,7 +2512,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__seller_ids
 #: model:ir.model.fields,field_description:product.field_product_template__seller_ids
 msgid "Vendors"
-msgstr ""
+msgstr "អ្នកលក់"
 
 #. module: product
 #: model:product.product,name:product.product_product_2
@@ -2524,7 +2531,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_template__volume
 #: model_terms:ir.ui.view,arch_db:product.product_template_form_view
 msgid "Volume"
-msgstr ""
+msgstr "តំឡើង"
 
 #. module: product
 #: model:ir.model.fields,field_description:product.field_product_product__website_message_ids
@@ -2542,7 +2549,7 @@ msgstr "ប្រវត្តិទំនាក់ទំនងវែបសាយ
 #: model:ir.model.fields,field_description:product.field_product_product__weight
 #: model:ir.model.fields,field_description:product.field_product_template__weight
 msgid "Weight"
-msgstr ""
+msgstr "ទំងន់"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.res_config_settings_view_form
@@ -2571,7 +2578,7 @@ msgstr ""
 #: model:ir.model.fields,field_description:product.field_product_product__weight_uom_name
 #: model:ir.model.fields,field_description:product.field_product_template__weight_uom_name
 msgid "Weight unit of measure label"
-msgstr ""
+msgstr "ឯកតាទម្ងន់នៃស្លាកវាស់"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view
@@ -2673,7 +2680,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_form_view
 #: model_terms:ir.ui.view,arch_db:product.product_supplierinfo_view_kanban
 msgid "days"
-msgstr ""
+msgstr "ថ្ងៃ"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_category_form_view
@@ -2755,7 +2762,7 @@ msgstr ""
 #: model:product.template,weight_uom_name:product.product_product_8_product_template
 #: model:product.template,weight_uom_name:product.product_product_9_product_template
 msgid "kg"
-msgstr ""
+msgstr "គីឡូ"
 
 #. module: product
 #: code:addons/product/models/product.py:586
@@ -2779,7 +2786,7 @@ msgstr ""
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.view_partner_property_form
 msgid "the parent company"
-msgstr ""
+msgstr "ក្រុមហ៊ុនគោល"
 
 #. module: product
 #: model_terms:ir.ui.view,arch_db:product.product_variant_easy_edit_view

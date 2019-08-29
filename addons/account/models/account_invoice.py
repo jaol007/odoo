@@ -304,7 +304,7 @@ class AccountInvoice(models.Model):
              "means direct payment.")
     partner_id = fields.Many2one('res.partner', string='Partner', change_default=True,
         readonly=True, states={'draft': [('readonly', False)]},
-        track_visibility='always', help="You can find a contact by its Name, TIN, Email or Internal Reference.")
+        track_visibility='always', ondelete='restrict', help="You can find a contact by its Name, TIN, Email or Internal Reference.")
     vendor_bill_id = fields.Many2one('account.invoice', string='Vendor Bill',
         help="Auto-complete from a past bill.")
     payment_term_id = fields.Many2one('account.payment.term', string='Payment Terms', oldname='payment_term',
@@ -416,7 +416,7 @@ class AccountInvoice(models.Model):
                     vendor_display_name = _('From: ') + invoice.source_email
                     invoice.invoice_icon = '@'
                 else:
-                    vendor_display_name = ('Created by: ') + invoice.create_uid.name
+                    vendor_display_name = _('Created by: %s') % invoice.sudo().create_uid.name
                     invoice.invoice_icon = '#'
             invoice.vendor_display_name = vendor_display_name
 
@@ -544,6 +544,9 @@ class AccountInvoice(models.Model):
                 for field in changed_fields:
                     if field not in vals and invoice[field]:
                         vals[field] = invoice._fields[field].convert_to_write(invoice[field], invoice)
+        bank_account = self._get_default_bank_id(vals.get('type'), vals.get('company_id'))
+        if bank_account and not vals.get('partner_bank_id'):
+            vals['partner_bank_id'] = bank_account.id
 
         invoice = super(AccountInvoice, self.with_context(mail_create_nolog=True)).create(vals)
 
@@ -579,13 +582,19 @@ class AccountInvoice(models.Model):
         """
         res = super(AccountInvoice, self).default_get(default_fields)
 
-        if res.get('type', False) not in ('out_invoice', 'in_refund') or not 'company_id' in res:
-            return res
-
-        partner_bank_result = self._get_partner_bank_id(res['company_id'])
+        partner_bank_result = self._get_default_bank_id(res.get('type'), res.get('company_id'))
         if partner_bank_result:
             res['partner_bank_id'] = partner_bank_result.id
         return res
+
+    def _get_default_bank_id(self, type, company_id):
+        """When setting the default bank account, we have two cases:
+         in the case of 'out_invoice', 'in_refund', we want the bank account of the company.
+         otherwise, we want the bank account of the partner.
+        """
+        if type not in ('out_invoice', 'in_refund') or not company_id:
+            return False
+        return self._get_partner_bank_id(company_id)
 
     def _get_partner_bank_id(self, company_id):
         company = self.env['res.company'].browse(company_id)
@@ -839,6 +848,8 @@ class AccountInvoice(models.Model):
             bank_id = bank_ids[0].id if bank_ids else False
             self.partner_bank_id = bank_id
             domain = {'partner_bank_id': [('id', 'in', bank_ids.ids)]}
+        elif type == 'out_invoice':
+            domain = {'partner_bank_id': [('partner_id.ref_company_ids', 'in', [self.company_id.id])]}
 
         res = {}
         if warning:
@@ -1493,6 +1504,10 @@ class AccountInvoice(models.Model):
 
         values['type'] = TYPE2REFUND[invoice['type']]
         values['date_invoice'] = date_invoice or fields.Date.context_today(invoice)
+        if values.get('date_due', False) and values['date_invoice']:
+            # To ensure that the date_invoice is a date object
+            if self._fields['date_invoice'].to_date(values['date_invoice']) > values['date_due']:
+                values['date_due'] = values['date_invoice']
         values['state'] = 'draft'
         values['number'] = False
         values['origin'] = invoice.number
@@ -1834,8 +1849,11 @@ class AccountInvoiceLine(models.Model):
             return
         if not self.product_id:
             fpos = self.invoice_id.fiscal_position_id
-            default_tax = self.invoice_id.type in ('out_invoice', 'out_refund') and self.invoice_id.company_id.account_sale_tax_id or self.invoice_id.company_id.account_purchase_tax_id
-            self.invoice_line_tax_ids = fpos.map_tax(self.account_id.tax_ids or default_tax, partner=self.partner_id).ids
+            if self.invoice_id.type in ('out_invoice', 'out_refund'):
+                default_tax = self.invoice_id.company_id.account_sale_tax_id
+            else:
+                default_tax = self.invoice_id.company_id.account_purchase_tax_id
+            self.invoice_line_tax_ids = fpos.map_tax(self.account_id.tax_ids or default_tax, partner=self.partner_id)
         elif not self.price_unit:
             self._set_taxes()
 
@@ -1908,7 +1926,7 @@ class AccountInvoiceLine(models.Model):
     @api.multi
     def write(self, values):
         if 'display_type' in values and self.filtered(lambda line: line.display_type != values.get('display_type')):
-            raise UserError("You cannot change the type of an invoice line. Instead you should delete the current line and create a new line of the proper type.")
+            raise UserError(_("You cannot change the type of an invoice line. Instead you should delete the current line and create a new line of the proper type."))
         return super(AccountInvoiceLine, self).write(values)
 
     _sql_constraints = [

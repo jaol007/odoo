@@ -404,6 +404,8 @@ class PurchaseOrder(models.Model):
             'default_company_id': self.company_id.id,
             'company_id': self.company_id.id
         }
+        if self.user_id:
+            result['context']['default_user_id'] = self.user_id.id
         # choose the view_mode accordingly
         if len(self.invoice_ids) > 1 and not create_bill:
             result['domain'] = "[('id', 'in', " + str(self.invoice_ids.ids) + ")]"
@@ -577,12 +579,7 @@ class PurchaseOrderLine(models.Model):
         if product_lang.description_purchase:
             self.name += '\n' + product_lang.description_purchase
 
-        fpos = self.order_id.fiscal_position_id
-        if self.env.uid == SUPERUSER_ID:
-            company_id = self.env.user.company_id.id
-            self.taxes_id = fpos.map_tax(self.product_id.supplier_taxes_id.filtered(lambda r: r.company_id.id == company_id))
-        else:
-            self.taxes_id = fpos.map_tax(self.product_id.supplier_taxes_id)
+        self._compute_tax_id()
 
         self._suggest_quantity()
         self._onchange_quantity()
@@ -654,9 +651,8 @@ class PurchaseOrderLine(models.Model):
         '''
         if not self.product_id:
             return
-
         seller_min_qty = self.product_id.seller_ids\
-            .filtered(lambda r: r.name == self.order_id.partner_id)\
+            .filtered(lambda r: r.name == self.order_id.partner_id and (not r.product_id or r.product_id == self.product_id))\
             .sorted(key=lambda r: r.min_qty)
         if seller_min_qty:
             self.product_qty = seller_min_qty[0].min_qty or 1.0

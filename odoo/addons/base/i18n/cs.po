@@ -65,6 +65,21 @@ msgid ""
 "        **R..R =** Customer Reference without non-numeric characters, **SSS =** Sequence Number, **DD =** Check Digits\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Přidejte strukturovanou komunikaci k fakturám zákazníků.\n"
+"--------------------------------------------------\n"
+"\n"
+"Použití strukturované komunikace BBA zjednodušuje sladění faktur a plateb.\n"
+"Strukturovanou komunikaci můžete vybrat jako platební komunikaci v nastavení Fakturace / Účetnictví.\n"
+"Navrhují se tři algoritmy:\n"
+"\n"
+"1) Náhodné: +++RRR/RRRR/RRRDD+++\n"
+"**R..R =** Náhodné číslice, **DD =** Kontrolní číslice\n"
+"2) Datum: +++DOY/YEAR/SSSDD+++\n"
+"**DOY =** Den v roce, **SSS =** Pořadové číslo, **DD =** Kontrolní číslice\n"
+"3) Reference zákazníka +++RRR/RRRR/SSSDDD+++\n"
+"**R..R =** Reference zákazníka bez nečíselných znaků, **SSS =** Pořadové číslo, **DD =** Kontrolní číslice"
 
 #. module: base
 #: model:ir.module.module,description:base.module_pos_reprint
@@ -93,6 +108,16 @@ msgid ""
 " - Hungarian Bank information\n"
 " "
 msgstr ""
+"\n"
+"\n"
+"Základní modul pro maďarskou lokalizaci\n"
+"==========================================\n"
+"\n"
+"Tento modul se skládá:\n"
+"\n"
+"- Obecná maďarská účetní osnova\n"
+"- Maďarské daně\n"
+"- Informace o maďarské bance"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_do
@@ -165,6 +190,71 @@ msgid ""
 "11010101 Caja General\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Lokalizační modul pro Dominikánskou republiku\n"
+"=============================================\n"
+"\n"
+"Katalog účtů a daní pro Dominikánskou republiku, kompatibilní s\n"
+"**Internacionalizací** s **IFRS** a sladěná s normami a předpisy\n"
+"generálního ředitelství pro vnitřní daně (**DGII**).\n"
+"\n"
+"** Tento modul se skládá z: **\n"
+"\n"
+"- Katalogu standardních účtů (v souladu s DGII a IFRS)\n"
+"- Daňový katalog s většinou předkonfigurovaných daní\n"
+"- ITBIS pro nákupy a prodeje\n"
+"- Retence ITBIS\n"
+"- Srážky ISR\n"
+"- Daňové a srážkové skupiny:\n"
+"- Telekomunikace\n"
+"- Dodavatelé stavebních materiálů\n"
+"- Fyzičtí poskytovatelé služeb\n"
+"- Ostatní daně\n"
+"- Předkonfigurované sekvence pro zpracování všech NCF\n"
+"- Faktury s fiskální hodnotou (za prodej)\n"
+"- Faktury pro konečné zákazníky\n"
+"- Debetní a kreditní dobropisy\n"
+"- Registrace neformálních dodavatelů\n"
+"- Registrace jediného příjmu\n"
+"- Záznam o drobných výdajích\n"
+"- Vláda\n"
+"- Daňové pozice pro automatizaci daní a srážek\n"
+"- Daňové změny osvobození (např. Prodej státu)\n"
+"- změny srážkové daně (např. Nákup v zahraničí)\n"
+"- Mimo jiné\n"
+"\n"
+"** Poznámka: **\n"
+"Toto umístění, ačkoli má sekvence pro NCF, nemůže\n"
+"být používáno bez instalace modulů třetích stran nebo vývoje\n"
+"dalších.\n"
+"\n"
+"Struktura kódování katalogu účtů:\n"
+"================================================== =\n"
+"\n"
+"**Jedna číslice** představuje kategorii / typ účtu účetní závěrky.\n"
+"**1** - aktivní **4** - účty příjmů a příjmů\n"
+"**2** - Pasiva **5** - Náklady, výdaje a ztráty\n"
+"**3** - Kapitál **6** - Účty zúčtování výsledků\n"
+"\n"
+"**Dvě číslice** představují položky seskupení:\n"
+"11 - Aktuální aktiva\n"
+"21 - Krátkodobé závazky\n"
+"31 - Vlastní kapitál akcionářů\n"
+"\n"
+"**Čtyři číslice** jsou přiřazeny hlavním účtům: účty prvního řádu\n"
+"1101 - Hotovost a peněžní ekvivalenty\n"
+"2101 - Účty a dokumenty k zaplacení\n"
+"3101 - Sociální kapitál\n"
+"\n"
+"**Šest číslic** je přiřazeno k podúčtem: účty druhého řádu\n"
+"110101 - Schránka\n"
+"210101 - Místní dodavatelé\n"
+"\n"
+"**Osm číslic** je pro účty třetího řádu (ty zobrazené v Odoo):\n"
+"1101 - Hotovost a ekvivalenty\n"
+"110101 - Schránka\n"
+"11010101 Obecná schránka"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_jp
@@ -186,6 +276,20 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Přehled:\n"
+"---------\n"
+"\n"
+"* Šablona účtů a daní pro společnosti v Japonsku.\n"
+"* To pravděpodobně nepokrývá všechny potřebné účty pro společnost. Očekává se, že na základě této šablony přidáte / odstraníte / upravíte účty.\n"
+"\n"
+"Poznámka:\n"
+"-----\n"
+"\n"
+"* Fiskální pozice „内税“ a „外税“ byly přidány ke zpracování zvláštních požadavků, které by mohly vyplynout z implementace POS. [1] Za normálních okolností je možná nebudete muset použít.\n"
+"\n"
+"[1] Podrobnosti viz https://github.com/odoo/odoo/pull/6470."
 
 #. module: base
 #: model:ir.module.module,description:base.module_account_deferred_revenue
@@ -199,6 +303,12 @@ msgid ""
 "\n"
 "    "
 msgstr ""
+"\n"
+"\n"
+"Uznání výnosů\n"
+"=====================\n"
+"Spravujte výnosy z prodeje produktů.\n"
+"Sleduje splátky zaúčtování výnosů a vytvářejte odpovídající položky deníku."
 
 #. module: base
 #: code:addons/base/models/res_config.py:316
@@ -219,6 +329,9 @@ msgid ""
 "\n"
 "This module adds a custom Sales Team for the point of sale to be able to view and manage your point of sale sales with more ease.\n"
 msgstr ""
+"\n"
+"\n"
+"Tento modul přidává vlastní prodejní tým pro prodejní místo, aby mohl snadněji prohlížet a spravovat prodejní místa.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_pos_restaurant
@@ -345,6 +458,10 @@ msgid ""
 "        Also add DATEV export options to general ledger\n"
 "    "
 msgstr ""
+"\n"
+"Účetní výkazy pro Německo\n"
+"Obsahuje rozvahu, zisk a ztrátu, DPH a partnerské DPH\n"
+"Do hlavní knihy také přidejte možnosti exportu DATEV"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_hu_reports
@@ -707,6 +824,33 @@ msgid ""
 "        try to use this method on an invoice for whose payment no mandate can be used.\n"
 "    "
 msgstr ""
+"\n"
+"Tento modul umožňuje generování souborů XML kompatibilních s SEPA inkasem (SDD) (konzistentní se specifikací pain.008.001.02), kterou chcete odeslat do své banky\n"
+"za účelem souhrnu plateb.\n"
+"\n"
+"Aby byl tento způsob platby způsobilý, musí mít nejprve zákazník\n"
+"vrátil společnosti mandát a dal souhlas s použitím inkasa.\n"
+"Tento souhlas musí být zakódován jako „mandát zákazníka“ do Odoo.\n"
+"\n"
+"Chcete-li správně vygenerovat soubor SDD, musíte také splnit následující požadavky:\n"
+"- Váš firemní účet musí být nastaven na platné číslo IBAN\n"
+"- Váš firemní účet musí být spojen s bankou, která má platný BIC\n"
+"- vaší společnosti musí být přidělen identifikátor věřitele (to lze provést v nabídce „nastavení“ účetního modulu)\n"
+"- Vaše společnost musí mít definován deník pro příjem plateb SDD (opět v „nastavení“ modulu pro účetnictví)\n"
+"- Každý zákazník, u kterého provedete platbu, musí mít platné číslo účtu IBAN v bance spojené se správným BIC.\n"
+"\n"
+"Odoo vás bude informovat, pokud některý z těchto požadavků nebude splněn.\n"
+"\n"
+"Jakákoli faktura, která bude ověřena pro zákazníka s mandátem, bude\n"
+"automaticky nastavena do stavu „placeno“ a bude vygenerována platba. \n"
+"Možnost na hlavním panelu vám pak umožní zobrazit všechny vygenerované platby\n"
+"pomocí SDD a vygenerovat pro ně soubor kolekce XML a seskupit je podle sebe.\n"
+"\n"
+"K dispozici je také speciální způsob platby „SEPA inkasem“\n"
+"otevřete faktury při výběru bankovního účtu v průvodci „registrovat platbu“.\n"
+"Použijte jej ke generování platby SDD pro faktury, pokud jste přidali mandát\n"
+"pro jeho vlastníka po jeho ověření. Pokud se vám zobrazí chybová zpráva\n"
+"zkuste použít tuto metodu na faktuře, jejíž platbu nelze použít."
 
 #. module: base
 #: model:ir.module.module,summary:base.module_account_online_sync
@@ -901,7 +1045,7 @@ msgid ""
 "    "
 msgstr ""
 "\n"
-" Modul propojující obslužný modul s časovým rozvrhem"
+" Modul propojující modul Docházky s časovým rozvrhem"
 
 #. module: base
 #: model:ir.module.module,description:base.module_payment_payumoney
@@ -1078,6 +1222,12 @@ msgid ""
 "\n"
 "It assigns manager and user access rights to the Administrator for the accounting application and only user rights to the Demo user.\n"
 msgstr ""
+"\n"
+"Přístupová práva k účetnictví\n"
+"=========================\n"
+"Poskytuje administrátorovi přístup ke všem účetním funkcím, jako jsou položky deníku a účtová osnova.\n"
+"\n"
+"Přiděluje administrátorovi přístupová práva pro účetní aplikaci a pouze uživatelská práva pro Demo uživatele.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_be_hr_payroll_account
@@ -1297,6 +1447,9 @@ msgid ""
 "Configure your own methods with a pricing grid or integrate with carriers for a fully automated shipping process.\n"
 "    "
 msgstr ""
+"\n"
+"Přidejte do svého elektronického obchodu výběr způsobů doručení.\n"
+"Nakonfigurujte své vlastní metody pomocí cenové mřížky nebo se integrujte s dopravci pro plně automatizovaný proces přepravy."
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_contract
@@ -1383,6 +1536,8 @@ msgid ""
 "Adds the possibility to specify the origin country of goods and the partner VAT in the Intrastat XML report.\n"
 "    "
 msgstr ""
+"\n"
+"Přidá možnost specifikovat zemi původu zboží a partnerskou DPH v Intrastat XML přehledu."
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_calendar
@@ -1981,6 +2136,9 @@ msgid ""
 "Configure the price accuracy you need for different kinds of usage: accounting, sales, purchases.\n"
 "=================================================================================================\n"
 msgstr ""
+"\n"
+"Konfiguruje přesnost ceny, kterou potřebujete pro různé použití: účetnictví, prodej, nákupy.\n"
+"================================================================================\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_website_crm_phone_validation
@@ -2010,6 +2168,8 @@ msgid ""
 "Contains advanced features for sale management\n"
 "    "
 msgstr ""
+"\n"
+"Obsahuje pokročilé funkce pro správu prodeje"
 
 #. module: base
 #: model:ir.module.module,description:base.module_stock_account_enterprise
@@ -2827,6 +2987,17 @@ msgid ""
 "internal transfer document is needed.\n"
 "\n"
 msgstr ""
+"\n"
+"Spravujte přímé dodávky objednávek\n"
+"===========================\n"
+"\n"
+"Tento modul přidává předkonfigurovaný typ operace dodávky na přímo,\n"
+"stejně jako trasu nákupu, která umožňuje konfiguraci produktů a objednávek dodávaných  přímo bez maloprodejců.\n"
+"\n"
+"Při použití přímé zásilky se zboží přímo převádí\n"
+"od prodejců k zákazníkům (přímé dodání) bez\n"
+"průchodu skladem maloobchodníka. V tomto případě není\n"
+"interní dokument transferu nutný.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_hr_expense
@@ -3285,6 +3456,11 @@ msgid ""
 "This module provides the core of the Odoo Web Client.\n"
 "        "
 msgstr ""
+"\n"
+"Webový modul Odoo Web.\n"
+"================\n"
+"\n"
+"Tento modul poskytuje jádro webového klienta Odoo."
 
 #. module: base
 #: model:ir.module.module,description:base.module_web_tour
@@ -3889,6 +4065,18 @@ msgid ""
 "    * Repair quotation report\n"
 "    * Notes for the technician and for the final customer\n"
 msgstr ""
+"\n"
+"Cílem je mít kompletní modul pro správu oprav všech produktů.\n"
+"================================================== ===================\n"
+"\n"
+"Tento modul pokrývá následující témata:\n"
+"------------------------------------------------------\n"
+"* Přidat nebo odebrat produkty v opravě\n"
+"* Dopad na zásoby\n"
+"* Fakturace (produkty a / nebo služby)\n"
+"* koncept Záruky\n"
+"* zpráva o nabídce Oprav\n"
+"* Poznámky pro technika a pro konečného zákazníka\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_lunch
@@ -4149,6 +4337,13 @@ msgid ""
 "la moneda del Quetzal. -- Adds accounting chart for Guatemala. It also includes\n"
 "taxes and the Quetzal currency."
 msgstr ""
+"\n"
+"Základní modul pro správu účetní tabulky pro Guatemalu.\n"
+"================================================= ====================\n"
+"\n"
+"Agrega una nomenclatura contable para Guatemala. También icluye impuestos y\n"
+"la moneda del Quetzal. . - Přidá účetní schéma pro Guatemalu. To také zahrnuje\n"
+"daně a měnu Quetzal."
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_hn
@@ -4228,6 +4423,12 @@ msgid ""
 "Romanian accounting chart and localization.\n"
 "    "
 msgstr ""
+"\n"
+"Toto je modul pro správu účetního grafu, struktury DPH, fiskální pozice a daňového mapování.\n"
+"Přidává také registrační číslo pro Rumunsko v Odoo.\n"
+"================================================== ===============================================================\n"
+"\n"
+"Rumunský účetní graf a lokalizace."
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ca
@@ -4424,6 +4625,13 @@ msgid ""
 "    Storage: automatic sales closings with computation of both period and cumulative totals (daily, monthly, annually)\n"
 "\n"
 msgstr ""
+"\n"
+"Tento modul přidává podporu pro automatické uzavírání prodejů s výpočtem období i kumulativních součtů (denně, měsíčně, ročně)\n"
+"---------------------------------------------------------------------------------------------------- ---------------------------------------------------------------------------------------------------- ---------------------------------------------\n"
+"\n"
+"Modul přidává následující funkce:\n"
+"\n"
+"Skladování: automatické uzavírání prodejů s výpočtem období i kumulativních součtů (denně, měsíčně, ročně)\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_event_barcode
@@ -4805,6 +5013,12 @@ msgid ""
 "with a single statement.\n"
 "    "
 msgstr ""
+"\n"
+"Tento modul instaluje základ pro bankovní účty IBAN (International Bank Account Number) a kontroluje jejich platnost.\n"
+"===============================================================================\n"
+"\n"
+"Schopný extrahovat správně reprezentované lokální účty z účtů IBAN\n"
+"s jedním prohlášením."
 
 #. module: base
 #: model:ir.module.module,description:base.module_association
@@ -5005,6 +5219,13 @@ msgid ""
 "      bilgileriniz, ilgili para birimi gibi bilgiler isteyecek.\n"
 "    "
 msgstr ""
+"\n"
+"Modul účetního rozvrhu šablony Odoo pro Turecko.\n"
+"==========================================================\n"
+"\n"
+"Po instalaci tohoto modulu se spustí Průvodce konfigurací účetnictví\n"
+"* Průvodce z vaší šablony plánu účtu, nainstalovat plán společnosti, bankovní účet\n"
+"informace, jako je příslušná měna."
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_ae
@@ -5220,6 +5441,9 @@ msgid ""
 "\n"
 "    Supported documents are SO, PO and invoices/credit notes.\n"
 msgstr ""
+"Modul pro synchronizaci dokumentů mezi několika společnostmi. To vám například umožní, aby byla automaticky vytvořena zakázka odběratele při ověření objednávky u jiné společnosti systému jako dodavatele a naopak.\n"
+"\n"
+"Podporované dokumenty jsou SO, PO a faktury / dobropisy.\n"
 
 #. module: base
 #: model:ir.module.module,description:base.module_l10n_hk
@@ -5601,6 +5825,8 @@ msgid ""
 "<span class=\"fa fa-plus-square\"/>\n"
 "                                       Create company"
 msgstr ""
+"<span class=\"fa fa-plus-square\"/>\n"
+"                                       Vytvořit společnost"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_base_module_update
@@ -5797,6 +6023,8 @@ msgid ""
 "<strong>This operation will permanently erase all data currently stored by "
 "the modules!</strong>"
 msgstr ""
+"<strong>Tato operace trvale vymaže všechna data aktuálně uložená "
+"moduly!</strong>"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.report_irmodeloverview
@@ -7250,12 +7478,12 @@ msgstr "Seznam příloh a indexace dokumentů"
 #. module: base
 #: model:ir.module.category,name:base.module_category_hr_attendance
 msgid "Attendance"
-msgstr "Účast"
+msgstr "Docházka"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_attendance
 msgid "Attendances"
-msgstr "Účastníci"
+msgstr "Docházející"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_mass_mailing
@@ -10002,7 +10230,7 @@ msgstr ""
 #: code:addons/base/models/ir_qweb_fields.py:510
 #, python-format
 msgid "Digital formating"
-msgstr ""
+msgstr "Digitální formátování"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__direction
@@ -11863,7 +12091,7 @@ msgstr "Generujte opakované faktury a spravujte opakování"
 #. module: base
 #: model:ir.module.module,summary:base.module_website_links
 msgid "Generate trackable & short URLs"
-msgstr ""
+msgstr "Vytvoří sledovatelné a krátké URL"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.ir_property_view_search
@@ -12388,7 +12616,7 @@ msgstr "Pomáhá řídit vedení vašich marketingových kampaní krok za krokem
 #. module: base
 #: model:ir.module.category,description:base.module_category_hr_attendance
 msgid "Helps you manage the attendances."
-msgstr "Pomáhá vám řídit návštěvy."
+msgstr "Pomáhá vám řídit docházku."
 
 #. module: base
 #: model:ir.module.category,description:base.module_category_hr_gamification
@@ -12889,6 +13117,9 @@ msgid ""
 "* if False, the view currently does not extend its parent but can be enabled\n"
 "         "
 msgstr ""
+"Pokud je toto zobrazení zděděno,\n"
+"* pokud je True, zobrazení vždy rozšiřuje své nadřazené pohledy\n"
+"* pokud je False, zobrazení aktuálně nerozšiřuje jeho nadřazené pohledy, ale může být povoleno"
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_rule_form
@@ -14668,7 +14899,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_account_accountant
 msgid "Manage financial and analytic accounting"
-msgstr ""
+msgstr "Správa finančního a analytického účetnictví"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_sale_stock
@@ -14730,7 +14961,7 @@ msgstr "Výrobní"
 #. module: base
 #: model:ir.module.module,summary:base.module_mrp
 msgid "Manufacturing Orders & BOMs"
-msgstr ""
+msgstr "Výrobní objednávky a kusovníky"
 
 #. module: base
 #: selection:ir.property,type:0
@@ -14814,7 +15045,7 @@ msgstr "Témata hromadné pošty"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mass_mailing_event
 msgid "Mass mailing on attendees"
-msgstr "Hromadná pošta návštěvníkům"
+msgstr "Hromadná pošta docházejícím"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_mass_mailing_crm
@@ -15252,7 +15483,7 @@ msgstr ""
 #. module: base
 #: model:ir.model,name:base.model_base_module_uninstall
 msgid "Module Uninstall"
-msgstr ""
+msgstr "Odinstalace modulu"
 
 #. module: base
 #: model:ir.actions.act_window,name:base.action_view_base_module_update
@@ -17044,7 +17275,7 @@ msgstr "Tuto akci lze provést pouze správci."
 #: code:addons/fields.py:1764
 #, python-format
 msgid "Only admins can upload SVG files."
-msgstr ""
+msgstr "Soubory SVG mohou nahrát pouze administrátoři."
 
 #. module: base
 #: model:ir.model.fields,help:base.field_ir_ui_view__mode
@@ -17636,12 +17867,12 @@ msgstr "Názvy partnerů"
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_users__active_partner
 msgid "Partner is Active"
-msgstr ""
+msgstr "Partner je aktivní"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_partner
 msgid "Partner module for website"
-msgstr ""
+msgstr "Modul partnera pro webové stránky"
 
 #. module: base
 #: model:ir.model.fields,help:base.field_res_users__partner_id
@@ -19112,7 +19343,7 @@ msgstr "Prodejní a kupní poukázky"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_coupon
 msgid "Sale Coupon"
-msgstr ""
+msgstr "Prodejní kupón"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_coupon_delivery
@@ -20338,7 +20569,7 @@ msgstr "TLS (STARTTLS)"
 #. module: base
 #: model:ir.module.module,summary:base.module_point_of_sale
 msgid "Tablet POS: shops and restaurants"
-msgstr ""
+msgstr "Prodejní pokladna: obchody a restaurace"
 
 #. module: base
 #: selection:report.paperformat,format:0
@@ -21254,7 +21485,7 @@ msgstr ""
 #: code:addons/base/models/ir_model.py:598
 #, python-format
 msgid "The field '%s' cannot be removed because the field '%s' depends on it."
-msgstr ""
+msgstr "Pole '%s' nelze odstranit, protože pole '%s' na něm závisí."
 
 #. module: base
 #: model_terms:ir.ui.view,arch_db:base.view_model_form
@@ -21795,7 +22026,7 @@ msgstr "Časové přehledy"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_hr_timesheet_attendance
 msgid "Timesheets/attendances reporting"
-msgstr "Přehled časových rozvrhů / prezence"
+msgstr "Přehled časových rozvrhů / docházky"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_partner__tz
@@ -21927,7 +22158,7 @@ msgstr ""
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_attendance
 msgid "Track employee attendance"
-msgstr "Sledovat prezenci zaměstnanců"
+msgstr "Sledovat docházku zaměstnanců"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_hr_timesheet
@@ -22406,7 +22637,7 @@ msgstr "Neznámé pole%r v závislosti%r"
 #: code:addons/base/models/ir_model.py:426
 #, python-format
 msgid "Unknown field name '%s' in related field '%s'"
-msgstr ""
+msgstr "Neznámý název pole  '%s'  v souvisejícím poli  '%s'"
 
 #. module: base
 #: code:addons/base/models/ir_fields.py:361
@@ -23104,7 +23335,7 @@ msgstr "Webový Editor"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_enterprise
 msgid "Web Enterprise"
-msgstr ""
+msgstr "Firemní webová strana"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_web_gantt
@@ -23731,8 +23962,8 @@ msgstr "např. en_US"
 #: model_terms:ir.ui.view,arch_db:base.view_company_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_address_form
 #: model_terms:ir.ui.view,arch_db:base.view_partner_form
-msgid "e.g. www.odoo.com"
-msgstr "např. www.odoo.com"
+msgid "e.g. https://www.odoo.com"
+msgstr "např. https://www.odoo.com"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_sale_ebay

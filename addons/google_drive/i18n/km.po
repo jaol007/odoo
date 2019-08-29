@@ -116,7 +116,7 @@ msgstr ""
 #: code:addons/google_drive/models/google_drive.py:82
 #, python-format
 msgid "Go to the configuration panel"
-msgstr ""
+msgstr "ចូលទៅផ្ទាំងការតំឡើង"
 
 #. module: google_drive
 #: model:ir.model.fields,field_description:google_drive.field_google_drive_config__google_drive_client_id
@@ -149,7 +149,7 @@ msgstr ""
 #. module: google_drive
 #: model:ir.model,name:google_drive.model_google_drive_config
 msgid "Google Drive templates config"
-msgstr ""
+msgstr "កំណត់រចនាសម្ព័ន្ធគំរូGoogle Drive "
 
 #. module: google_drive
 #: model:ir.model.fields,field_description:google_drive.field_google_drive_config__id
@@ -184,7 +184,7 @@ msgstr ""
 #. module: google_drive
 #: model:ir.model.fields,field_description:google_drive.field_google_drive_config__model_id
 msgid "Model"
-msgstr ""
+msgstr "ម៉ូដែល"
 
 #. module: google_drive
 #: code:addons/google_drive/models/google_drive.py:203
@@ -234,7 +234,7 @@ msgstr ""
 #. module: google_drive
 #: model:ir.model.fields,help:google_drive.field_res_config_settings__google_drive_uri
 msgid "The URL to generate the authorization code from Google"
-msgstr ""
+msgstr "ជាទូទៅURLទៅលើកូដដោយស្វ័យប្រវត្តិពីGoogle"
 
 #. module: google_drive
 #: model_terms:ir.ui.view,arch_db:google_drive.view_google_drive_config_form

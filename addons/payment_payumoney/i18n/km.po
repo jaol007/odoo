@@ -89,7 +89,7 @@ msgstr ""
 #. module: payment_payumoney
 #: model:ir.model,name:payment_payumoney.model_payment_acquirer
 msgid "Payment Acquirer"
-msgstr ""
+msgstr "ការបង់ថ្លៃទំនិញ"
 
 #. module: payment_payumoney
 #: model:ir.model,name:payment_payumoney.model_payment_transaction
@@ -104,7 +104,7 @@ msgstr ""
 #. module: payment_payumoney
 #: model:ir.model.fields,field_description:payment_payumoney.field_payment_acquirer__provider
 msgid "Provider"
-msgstr ""
+msgstr "ការផ្តល់ជូន"
 
 #. module: payment_payumoney
 #: selection:payment.acquirer,provider:0
