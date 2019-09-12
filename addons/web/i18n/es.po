@@ -2008,7 +2008,7 @@ msgstr "Iniciar Sesión"
 #. module: web
 #: model_terms:ir.ui.view,arch_db:web.login
 msgid "Log in as superuser"
-msgstr ""
+msgstr "Inicie sesión como superusuario"
 
 #. module: web
 #. openerp-web

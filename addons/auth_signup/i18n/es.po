@@ -576,8 +576,7 @@ msgstr ""
 #: code:addons/auth_signup/controllers/main.py:52
 #, python-format
 msgid "Another user is already registered using this email address."
-msgstr ""
-"Otro usuario ya se ha registrado usando esta dirección de correo electrónico"
+msgstr "Otro usuario ya se ha registrado usando esta dirección de correo electrónico"
 
 #. module: auth_signup
 #: code:addons/auth_signup/controllers/main.py:137
@@ -594,8 +593,7 @@ msgstr "Volver al Inicio de sesión"
 #: code:addons/auth_signup/models/res_users.py:199
 #, python-format
 msgid "Cannot send email: user %s has no email address."
-msgstr ""
-"No se puede enviar el correo electrónico: el usuario %s no tiene dirección "
+msgstr "No se puede enviar el correo electrónico: el usuario %s no tiene dirección "
 "de correo electrónico."
 
 #. module: auth_signup
@@ -659,8 +657,7 @@ msgstr "¿No tiene una cuenta?"
 #: model:ir.model.fields,field_description:auth_signup.field_res_config_settings__auth_signup_reset_password
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_config_settings_view_form
 msgid "Enable password reset from Login page"
-msgstr ""
-"Habilitar restablecimiento de la contraseña desde la página de inicio de "
+msgstr "Habilitar restablecimiento de la contraseña desde la página de inicio de "
 "sesión"
 
 #. module: auth_signup
@@ -720,8 +717,7 @@ msgstr "Restablecer contraseña"
 #: code:addons/auth_signup/models/res_users.py:163
 #, python-format
 msgid "Reset password: invalid username or email"
-msgstr ""
-"Restablecimiento de contraseña: usuario o correo electrónico no válido"
+msgstr "Restablecimiento de contraseña: usuario o correo electrónico no válido"
 
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.res_users_view_form
@@ -796,13 +792,13 @@ msgstr "Registro: plantilla de usuario inválida"
 #: code:addons/auth_signup/models/res_users.py:141
 #, python-format
 msgid "Signup: no login given for new user"
-msgstr ""
+msgstr "Registro: no se da inicio de sesión para el nuevo usuario"
 
 #. module: auth_signup
 #: code:addons/auth_signup/models/res_users.py:143
 #, python-format
 msgid "Signup: no name or partner given for new user"
-msgstr ""
+msgstr "Registro: sin nombre o concato para el nuevo usuario"
 
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_users__state
@@ -812,8 +808,7 @@ msgstr "Estado"
 #. module: auth_signup
 #: model:ir.model.fields,field_description:auth_signup.field_res_config_settings__auth_signup_template_user_id
 msgid "Template user for new users created through signup"
-msgstr ""
-"Plantilla de usuario para los nuevos usuarios creados a través del ingreso"
+msgstr "Plantilla de usuario para los nuevos usuarios creados a través del ingreso"
 
 #. module: auth_signup
 #: code:addons/auth_signup/controllers/main.py:123
@@ -862,4 +857,4 @@ msgstr "Su nombre"
 #. module: auth_signup
 #: model_terms:ir.ui.view,arch_db:auth_signup.fields
 msgid "e.g. John Doe"
-msgstr "Por ejemplo, JJohn Smith"
+msgstr "Por ejemplo, John Smith"
