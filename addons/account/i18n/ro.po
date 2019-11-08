@@ -824,11 +824,12 @@ msgstr ""
 #, python-format
 msgid ""
 "A user cannot have both Tax B2B and Tax B2C.\n"
-"Problematic user(s): %s\n"
 "You should go in General Settings, and choose to display Product Prices\n"
 "either in 'Tax-Included' or in 'Tax-Excluded' mode\n"
 "(or switch twice the mode if you are already in the desired one)."
 msgstr ""
+"Un utilizator nu poate avea atât Taxa B2B, cât și Taxa B2C.\n"
+"Ar trebui să accesați Setări generale și să alegeți ce să afișați la prețurile produselor fie modul „taxe incluse”, fie modul „Fără taxe” (sau să schimbați de două ori modul dacă sunteți deja în cea dorită)."
 
 #. module: account
 #: model:res.groups,name:account.group_warning_account
@@ -4124,6 +4125,12 @@ msgid ""
 msgstr ""
 
 #. module: account
+#: code:addons/account/models/account_move.py:408
+#, python-format
+msgid "Difference debit - credit: "
+msgstr ""
+
+#. module: account
 #: model:ir.model,name:account.model_digest_digest
 msgid "Digest"
 msgstr "Rezumat"
@@ -5646,7 +5653,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_invoice_layout_step
 msgid "Invoice Layout"
-msgstr ""
+msgstr "Aspect factură"
 
 #. module: account
 #: model:ir.model,name:account.model_account_invoice_line
@@ -8260,7 +8267,7 @@ msgstr "Cantitate:"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__rating_value
 msgid "Rating Value"
-msgstr ""
+msgstr "Valoare evaluare"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_refund__description
@@ -9056,7 +9063,7 @@ msgstr ""
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_sample_invoice_step
 msgid "Send an invoice to test the customer portal."
-msgstr ""
+msgstr "Trimiteți o factură pentru a testa portalul clienților."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.onboarding_sample_invoice_step
@@ -10565,8 +10572,8 @@ msgid ""
 "These types are defined according to your country. The type contains more "
 "information about the account and its specificities."
 msgstr ""
-"Aceste tipuri sunt definite în functie de tara dumneavoastra. Tipul contine "
-"mai multe informatii despre cont si specificul acestuia."
+"Aceste tipuri sunt definite în funcție de tara dumneavoastră. Tipul conține "
+"mai multe informații despre cont și specificul acestuia."
 
 #. module: account
 #: code:addons/account/models/account_journal_dashboard.py:100
@@ -10930,7 +10937,7 @@ msgstr ""
 msgid ""
 "Total amount in the currency of the company, negative for credit notes."
 msgstr ""
-"Suma totală în moneda companiei, negativă pentru stornări (notele de "
+"Valoare totală în moneda companiei, negativă pentru stornări (notele de "
 "credit)."
 
 #. module: account
@@ -11163,7 +11170,7 @@ msgstr "Valoare fără taxe"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__amount_untaxed_signed
 msgid "Untaxed Amount in Company Currency"
-msgstr ""
+msgstr "Valoare fără taxe în moneda companiei"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice__amount_untaxed_invoice_signed
@@ -11250,7 +11257,7 @@ msgstr "Utilizați produse în facturile de achiziție"
 #. module: account
 #: model:res.groups,name:account.group_products_in_bills
 msgid "Use products on vendor bills"
-msgstr ""
+msgstr "Utilizați produs în facturile de achiziție"
 
 #. module: account
 #: model:ir.model.fields,field_description:account.field_account_invoice_send__template_id

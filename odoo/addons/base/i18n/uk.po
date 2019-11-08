@@ -10290,6 +10290,12 @@ msgid "Barcode scan in Mobile"
 msgstr "Сканування штрих-коду мобільним пристроєм"
 
 #. module: base
+#: code:addons/base/models/ir_qweb_fields.py:607
+#, python-format
+msgid "Barcode symbology"
+msgstr "Символіка штрих-кодів"
+
+#. module: base
 #: code:addons/base/models/ir_qweb_fields.py:603
 #, python-format
 msgid "Barcode type"
@@ -14585,7 +14591,7 @@ msgstr "Вікно"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_form_editor
 msgid "Form Builder"
-msgstr "Форма створення"
+msgstr "Конструктор форм"
 
 #. module: base
 #: selection:ir.actions.act_url,binding_type:0
@@ -15397,7 +15403,7 @@ msgstr "Служба підтримки"
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_helpdesk_timesheet
 msgid "Helpdesk Timesheet"
-msgstr "Інформаційна панель табеля"
+msgstr "Табель служби підтримки"
 
 #. module: base
 #: model:ir.module.module,shortdesc:base.module_website_helpdesk_forum
@@ -26718,12 +26724,12 @@ msgstr "Четвер"
 #. module: base
 #: model:ir.module.module,summary:base.module_website_helpdesk_livechat
 msgid "Ticketing, Support, Livechat"
-msgstr "Обслуговування, Підтримка, Живий чат"
+msgstr "Заявки, Підтримка, Живий чат"
 
 #. module: base
 #: model:ir.module.module,summary:base.module_website_helpdesk_slides
 msgid "Ticketing, Support, Slides"
-msgstr "Обілечування, Підтримка, Слайди"
+msgstr "Заявки, Підтримка, Слайди"
 
 #. module: base
 #: model:ir.model.fields,field_description:base.field_res_lang__time_format

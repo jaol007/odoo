@@ -36,6 +36,10 @@ msgid ""
 "                </p>\n"
 "            "
 msgstr ""
+"\n"
+"<p class=\"o_view_nocontent_smiling_face\">\n"
+"Pontaj</p>\n"
+"<p>Puteți să vă înregistrați și să urmăriți orele de lucru pentru un proiect în fiecare zi. Fiecare timp petrecut într-un proiect va deveni un cost și poate fi re-facturat clienților, dacă este necesar.</p>"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,help:sale_timesheet.field_project_create_sale_order__billable_type
@@ -735,7 +739,7 @@ msgstr ""
 #: model:ir.actions.act_window,name:sale_timesheet.project_profitability_report_action
 #: model:ir.ui.menu,name:sale_timesheet.menu_project_profitability_analysis
 msgid "Project Costs and Revenues"
-msgstr ""
+msgstr "Costuri și venituri"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_project_profitability_report__currency_id
@@ -938,7 +942,7 @@ msgstr "Service"
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_product_template__service_policy
 msgid "Service Invoicing Policy"
-msgstr ""
+msgstr "Politică de facturare servicii"
 
 #. module: sale_timesheet
 #: model:ir.model.fields,field_description:sale_timesheet.field_product_template__service_tracking
@@ -1110,7 +1114,7 @@ msgstr ""
 #. module: sale_timesheet
 #: model_terms:ir.ui.view,arch_db:sale_timesheet.timesheet_plan
 msgid "Time by people"
-msgstr ""
+msgstr "Timp după persoane"
 
 #. module: sale_timesheet
 #. openerp-web
