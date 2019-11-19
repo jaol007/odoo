@@ -347,7 +347,7 @@ msgstr "Dibuje su firma"
 #: code:addons/portal/static/src/js/portal_sidebar.js:41
 #, python-format
 msgid "Due in %d days"
-msgstr "Vencido en %d días"
+msgstr "Se Vence en %d días"
 
 #. module: portal
 #. openerp-web

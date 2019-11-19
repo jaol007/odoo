@@ -1886,7 +1886,7 @@ msgstr "Fecha de vencimiento en"
 #: code:addons/mail/static/src/js/activity.js:95
 #, python-format
 msgid "Due in %d days"
-msgstr "Vencido en %d días"
+msgstr "Se Vence en %d días"
 
 #. module: mail
 #: model:ir.model.fields,field_description:mail.field_ir_actions_server__activity_date_deadline_range_type
