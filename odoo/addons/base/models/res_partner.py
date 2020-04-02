@@ -9,8 +9,6 @@ import pytz
 import threading
 import re
 
-from email.utils import formataddr
-
 import requests
 from lxml import etree
 from werkzeug import urls
@@ -406,7 +404,7 @@ class Partner(models.Model):
     def _compute_email_formatted(self):
         for partner in self:
             if partner.email:
-                partner.email_formatted = formataddr((partner.name or u"False", partner.email or u"False"))
+                partner.email_formatted = tools.formataddr((partner.name or u"False", partner.email or u"False"))
             else:
                 partner.email_formatted = ''
 
@@ -481,8 +479,9 @@ class Partner(models.Model):
         sync_children = self.child_ids.filtered(lambda c: not c.is_company)
         for child in sync_children:
             child._commercial_sync_to_children()
+        res = sync_children.write(sync_vals)
         sync_children._compute_commercial_partner()
-        return sync_children.write(sync_vals)
+        return res
 
     @api.multi
     def _fields_sync(self, values):

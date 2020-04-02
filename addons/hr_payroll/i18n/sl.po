@@ -11,15 +11,16 @@
 # jl2035 <jaka.luthar@gmail.com>, 2019
 # Boris Kodelja <boris@hbs.si>, 2019
 # Jasmina Macur <jasmina@hbs.si>, 2019
-# Matjaz Mozetic <m.mozetic@matmoz.si>, 2019
+# Tadej Lupšina <tadej@hbs.si>, 2019
+# Matjaz Mozetic <m.mozetic@matmoz.si>, 2020
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-09 10:31+0000\n"
+"POT-Creation-Date: 2019-11-14 07:33+0000\n"
 "PO-Revision-Date: 2018-08-24 09:19+0000\n"
-"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>, 2019\n"
+"Last-Translator: Matjaz Mozetic <m.mozetic@matmoz.si>, 2020\n"
 "Language-Team: Slovenian (https://www.transifex.com/odoo/teams/41243/sl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -62,7 +63,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslipdetails
 msgid "<strong>Address</strong>"
-msgstr ""
+msgstr "<strong>Naslov</strong>"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
@@ -108,7 +109,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslipdetails
 msgid "<strong>Email</strong>"
-msgstr ""
+msgstr "<strong>E-pošta</strong>"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.report_payslip
@@ -148,8 +149,8 @@ msgstr ""
 
 #. module: hr_payroll
 #: model:ir.model.fields,field_description:hr_payroll.field_res_config_settings__module_account_accountant
-msgid "Account Accountant"
-msgstr ""
+msgid "Account"
+msgstr "Konto"
 
 #. module: hr_payroll
 #: model_terms:ir.ui.view,arch_db:hr_payroll.res_config_settings_view_form
@@ -572,7 +573,7 @@ msgstr "Podrobnosti po kategorijah plačnih pravil"
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_contributionregister__display_name
 #: model:ir.model.fields,field_description:hr_payroll.field_report_hr_payroll_report_payslipdetails__display_name
 msgid "Display Name"
-msgstr "Prikazni naziv"
+msgstr "Prikazani naziv"
 
 #. module: hr_payroll
 #: selection:hr.payslip,state:0

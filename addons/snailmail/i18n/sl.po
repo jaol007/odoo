@@ -9,6 +9,7 @@
 # laznikd <laznik@mentis.si>, 2019
 # matjaz k <matjaz@mentis.si>, 2019
 # Boris Kodelja <boris@hbs.si>, 2019
+# Jasmina Macur <jasmina@hbs.si>, 2019
 # Tadej Lupšina <tadej@hbs.si>, 2019
 # Jasmina Macur <jasmina@hbs.si>, 2019
 # 
@@ -45,7 +46,7 @@ msgstr ""
 #: code:addons/snailmail/models/snailmail_letter.py:215
 #, python-format
 msgid "An unknown error happened. Please contact the support."
-msgstr ""
+msgstr "Zgodila se je neznana napaka. Obrnite se na podporo."
 
 #. module: snailmail
 #: model:ir.model.fields,field_description:snailmail.field_snailmail_letter__attachment_id
@@ -303,3 +304,5 @@ msgid ""
 "You don't have enough credits to perform this operation.<br>Please go to "
 "your <a href=%s target=\"new\">iap account</a>."
 msgstr ""
+"Za izvedbo te operacije nimate dovolj kreditov.<br>Prosim, pojdite na svoj "
+"<a href=%s target=\"new\">iap račun</a>."

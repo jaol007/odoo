@@ -112,6 +112,7 @@ class Lead(models.Model):
     partner_address_name = fields.Char('Partner Contact Name', related='partner_id.name', readonly=True)
     partner_address_email = fields.Char('Partner Contact Email', related='partner_id.email', readonly=True)
     partner_address_phone = fields.Char('Partner Contact Phone', related='partner_id.phone', readonly=True)
+    partner_address_mobile = fields.Char('Partner Contact Mobile', related='partner_id.mobile', readonly=True)
     partner_is_blacklisted = fields.Boolean('Partner is blacklisted', related='partner_id.is_blacklisted', readonly=True)
     company_currency = fields.Many2one(string='Currency', related='company_id.currency_id', readonly=True, relation="res.currency")
     user_email = fields.Char('User Email', related='user_id.email', readonly=True)
@@ -1163,8 +1164,8 @@ class Lead(models.Model):
 
     @api.multi
     def get_formview_id(self, access_uid=None):
-        if self.type == 'opportunity':
-            view_id = self.env.ref('crm.crm_case_form_view_oppor').id
+        if self.type == 'lead':
+            view_id = self.env.ref('crm.crm_case_form_view_leads').id
         else:
             view_id = super(Lead, self).get_formview_id()
         return view_id
